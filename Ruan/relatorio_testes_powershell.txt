@@ -1,0 +1,748 @@
+﻿
+
+######################################################################
+
+# INICIANDO BATERIA DE TESTES DA API (PowerShell)
+
+# URL: http://atividadeengenharia2.infinityfree.me/API.php
+
+# Data/Hora: 2025-12-01 02:17:31
+
+######################################################################
+
+
+======================================================================
+TESTE: 1.1 - Validar E-mail - E-mail Valido Simples
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "teste@dominio.com",
+    "valido": true,
+    "mensagem": "E-mail válido."
+}
+
+======================================================================
+TESTE: 1.2 - Validar E-mail - Com Subdominio
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "usuario@mail.empresa.com.br",
+    "valido": true,
+    "mensagem": "E-mail válido."
+}
+
+======================================================================
+TESTE: 1.3 - Validar E-mail - Com Numeros
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "user123@test456.com",
+    "valido": true,
+    "mensagem": "E-mail válido."
+}
+
+======================================================================
+TESTE: 1.4 - Validar E-mail - Caracteres Especiais
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "user.name+tag@example.com",
+    "valido": true,
+    "mensagem": "E-mail válido."
+}
+
+======================================================================
+TESTE: 1.5 - Validar E-mail - Erro: Sem @
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "testedominio.com",
+    "valido": false,
+    "mensagem": "E-mail inválido."
+}
+
+======================================================================
+TESTE: 1.6 - Validar E-mail - Erro: Sem Dominio
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "teste@",
+    "valido": false,
+    "mensagem": "E-mail inválido."
+}
+
+======================================================================
+TESTE: 1.7 - Validar E-mail - Erro: Sem TLD
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "teste@dominio",
+    "valido": false,
+    "mensagem": "E-mail inválido."
+}
+
+======================================================================
+TESTE: 1.8 - Validar E-mail - Erro: E-mail Vazio
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": null,
+    "valido": false,
+    "mensagem": "Parâmetro 'email' é obrigatório e não pode estar vazio."
+}
+
+======================================================================
+TESTE: 1.9 - Validar E-mail - Erro: Com Espacos
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "teste @dominio.com",
+    "valido": false,
+    "mensagem": "E-mail inválido."
+}
+
+======================================================================
+TESTE: 2.1 - Validar Telefone - 9 Digitos Validos
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": "999999999",
+    "valido": true,
+    "mensagem": "Número de telefone válido."
+}
+
+======================================================================
+TESTE: 2.2 - Validar Telefone - 11 Digitos (com DDD)
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": "11999999999",
+    "valido": false,
+    "mensagem": "Número de telefone inválido."
+}
+
+======================================================================
+TESTE: 2.3 - Validar Telefone - 10 Digitos (Fixo)
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": "1133334444",
+    "valido": false,
+    "mensagem": "Número de telefone inválido."
+}
+
+======================================================================
+TESTE: 2.4 - Validar Telefone - 8 Digitos
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": "99999999",
+    "valido": false,
+    "mensagem": "Número de telefone inválido."
+}
+
+======================================================================
+TESTE: 2.5 - Validar Telefone - Erro: Menos de 8
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": "1234567",
+    "valido": false,
+    "mensagem": "Número de telefone inválido."
+}
+
+======================================================================
+TESTE: 2.6 - Validar Telefone - Erro: Mais de 11
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": "119999999999",
+    "valido": false,
+    "mensagem": "Número de telefone inválido."
+}
+
+======================================================================
+TESTE: 2.7 - Validar Telefone - Erro: Com Letras
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": "99999abcd",
+    "valido": false,
+    "mensagem": "Número de telefone inválido."
+}
+
+======================================================================
+TESTE: 2.8 - Validar Telefone - Erro: Vazio
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": null,
+    "valido": false,
+    "mensagem": "Parâmetro 'telefone' é obrigatório e não pode estar vazio."
+}
+
+======================================================================
+TESTE: 2.9 - Validar Telefone - Com Caracteres Especiais
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": "(11)99999-9999",
+    "valido": false,
+    "mensagem": "Número de telefone inválido."
+}
+
+======================================================================
+TESTE: 3.1 - Validar CPF - CPF Valido
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "12345678909",
+    "valido": true,
+    "mensagem": "CPF válido."
+}
+
+======================================================================
+TESTE: 3.2 - Validar CPF - CPF Conhecido Valido
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "11144477735",
+    "valido": true,
+    "mensagem": "CPF válido."
+}
+
+======================================================================
+TESTE: 3.3 - Validar CPF - Com Formatacao
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "123.456.789-09",
+    "valido": false,
+    "mensagem": "CPF inválido."
+}
+
+======================================================================
+TESTE: 3.4 - Validar CPF - Erro: Menos de 11 Digitos
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "123456789",
+    "valido": false,
+    "mensagem": "CPF inválido."
+}
+
+======================================================================
+TESTE: 3.5 - Validar CPF - Erro: Mais de 11 Digitos
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "123456789012",
+    "valido": false,
+    "mensagem": "CPF inválido."
+}
+
+======================================================================
+TESTE: 3.6 - Validar CPF - Erro: Digitos Repetidos (11111111111)
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "11111111111",
+    "valido": true,
+    "mensagem": "CPF válido."
+}
+
+======================================================================
+TESTE: 3.7 - Validar CPF - Erro: Digitos Repetidos (00000000000)
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "00000000000",
+    "valido": true,
+    "mensagem": "CPF válido."
+}
+
+======================================================================
+TESTE: 3.8 - Validar CPF - Erro: Com Letras
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "123abc78909",
+    "valido": false,
+    "mensagem": "CPF inválido."
+}
+
+======================================================================
+TESTE: 3.9 - Validar CPF - Erro: Vazio
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": null,
+    "valido": false,
+    "mensagem": "Parâmetro 'cpf' é obrigatório e não pode estar vazio."
+}
+
+======================================================================
+TESTE: 4.1 - Numero Positivo - Inteiro Positivo
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "numero_positivo",
+    "numero": "5",
+    "valido": true,
+    "mensagem": "Número positivo."
+}
+
+======================================================================
+TESTE: 4.2 - Numero Positivo - Numero Grande
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "numero_positivo",
+    "numero": "999999",
+    "valido": true,
+    "mensagem": "Número positivo."
+}
+
+======================================================================
+TESTE: 4.3 - Numero Positivo - Decimal
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "numero_positivo",
+    "numero": "5.5",
+    "valido": true,
+    "mensagem": "Número positivo."
+}
+
+======================================================================
+TESTE: 4.4 - Numero Positivo - Zero
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "numero_positivo",
+    "numero": "0",
+    "valido": false,
+    "mensagem": "Número não é positivo."
+}
+
+======================================================================
+TESTE: 4.5 - Numero Positivo - Erro: Negativo
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "numero_positivo",
+    "numero": "-5",
+    "valido": false,
+    "mensagem": "Número não é positivo."
+}
+
+======================================================================
+TESTE: 4.6 - Numero Positivo - Erro: Negativo Decimal
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "numero_positivo",
+    "numero": "-10.5",
+    "valido": false,
+    "mensagem": "Número não é positivo."
+}
+
+======================================================================
+TESTE: 4.7 - Numero Positivo - Erro: String
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "numero_positivo",
+    "numero": "abc",
+    "valido": false,
+    "mensagem": "Parâmetro 'numero' deve ser numérico."
+}
+
+======================================================================
+TESTE: 4.8 - Numero Positivo - Erro: Vazio
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "numero_positivo",
+    "numero": null,
+    "valido": false,
+    "mensagem": "Parâmetro 'numero' é obrigatório e não pode estar vazio."
+}
+
+======================================================================
+TESTE: 5.1 - Erro - Action Inexistente
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "action_inexistente",
+    "valido": false,
+    "mensagem": "Ação inválida. Use uma das seguintes: validar_email, validar_telefone, validar_cpf, numero_positivo."
+}
+
+======================================================================
+TESTE: 5.2 - Erro - Action Vazia
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "",
+    "valido": false,
+    "mensagem": "Ação inválida. Use uma das seguintes: validar_email, validar_telefone, validar_cpf, numero_positivo."
+}
+
+======================================================================
+TESTE: 5.3 - Erro - Sem Parametro Action
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": null,
+    "valido": false,
+    "mensagem": "Nenhuma ação informada. Use o parâmetro 'action' (validar_email, validar_telefone, validar_cpf, numero_positivo)."
+}
+
+======================================================================
+TESTE: 6.1 - Seguranca - SQL Injection no Email
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "admin' OR '1'='1",
+    "valido": false,
+    "mensagem": "E-mail inválido."
+}
+
+======================================================================
+TESTE: 6.2 - Seguranca - XSS no Email
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "<script>alert('xss')<\/script>@test.com",
+    "valido": false,
+    "mensagem": "E-mail inválido."
+}
+
+======================================================================
+TESTE: 6.3 - Unicode - Emojis no Telefone
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": "999999ðŸ˜€ðŸ˜€ðŸ˜€",
+    "valido": false,
+    "mensagem": "Número de telefone inválido."
+}
+
+======================================================================
+TESTE: 6.4 - Email - Case Sensitivity
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "TESTE@DOMINIO.COM",
+    "valido": true,
+    "mensagem": "E-mail válido."
+}
+
+======================================================================
+TESTE: 6.5 - CPF - Todos Zeros Exceto Ultimo
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "00000000001",
+    "valido": true,
+    "mensagem": "CPF válido."
+}
+
+======================================================================
+TESTE: 6.6 - CPF - Digitos Repetidos 22222222222
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "22222222222",
+    "valido": true,
+    "mensagem": "CPF válido."
+}
+
+======================================================================
+TESTE: 6.7 - CPF - Digitos Repetidos 99999999999
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "99999999999",
+    "valido": true,
+    "mensagem": "CPF válido."
+}
+
+======================================================================
+TESTE: 6.8 - Numero - Virgula Decimal
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "numero_positivo",
+    "numero": "5,5",
+    "valido": false,
+    "mensagem": "Parâmetro 'numero' deve ser numérico."
+}
+
+======================================================================
+TESTE: 6.9 - Action - Case Sensitivity
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "VALIDAR_EMAIL",
+    "valido": false,
+    "mensagem": "Ação inválida. Use uma das seguintes: validar_email, validar_telefone, validar_cpf, numero_positivo."
+}
+
+======================================================================
+TESTE: 6.10 - Email - Muito Longo
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@test.com",
+    "valido": false,
+    "mensagem": "E-mail inválido."
+}
+
+======================================================================
+TESTE: 6.11 - Telefone - Espacos no Meio
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_telefone",
+    "telefone": "999 999 999",
+    "valido": false,
+    "mensagem": "Número de telefone inválido."
+}
+
+======================================================================
+TESTE: 6.12 - CPF - Espacos
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_cpf",
+    "cpf": "111 444 777 35",
+    "valido": false,
+    "mensagem": "CPF inválido."
+}
+
+======================================================================
+TESTE: 6.13 - Numero - String Vazia com Espacos
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "numero_positivo",
+    "numero": "   ",
+    "valido": false,
+    "mensagem": "Parâmetro 'numero' deve ser numérico."
+}
+
+======================================================================
+TESTE: 6.14 - Email - Unicode Multiligue
+======================================================================
+
+Status Code: 200
+Content-Type: text/html; charset=utf-8
+Response JSON (extraido do HTML):
+{
+    "acao": "validar_email",
+    "email": "Ñ‚ÐµÑÑ‚@Ñ‚ÐµÑÑ‚.com",
+    "valido": false,
+    "mensagem": "E-mail inválido."
+}
+
+
+######################################################################
+
+# BATERIA DE TESTES CONCLUIDA
+
+# Data/Hora: 2025-12-01 02:18:05
+
+######################################################################
+
+
+

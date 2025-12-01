@@ -1,0 +1,948 @@
+======================================================================
+RELATÓRIO DE TESTES DA API
+Data/Hora: 2025-12-01 01:39:45
+URL: https://cct.uenp.edu.br/coleti/es2/willian/api.php
+======================================================================
+
+######################################################################
+# INICIANDO BATERIA DE TESTES DA API
+# URL: https://cct.uenp.edu.br/coleti/es2/willian/api.php
+######################################################################
+
+======================================================================
+TESTE: 1.1 - Calcular IMC - Peso Normal
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:02 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '110', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 22.86,
+    "classificacao": "Peso normal"
+  }
+}
+
+======================================================================
+TESTE: 1.2 - Calcular IMC - Abaixo do Peso
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:03 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '113', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 16.33,
+    "classificacao": "Abaixo do peso"
+  }
+}
+
+======================================================================
+TESTE: 1.3 - Calcular IMC - Sobrepeso
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:05 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '108', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 27.68,
+    "classificacao": "Sobrepeso"
+  }
+}
+
+======================================================================
+TESTE: 1.4 - Calcular IMC - Obesidade Grau I
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:06 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '115', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 31.02,
+    "classificacao": "Obesidade grau I"
+  }
+}
+
+======================================================================
+TESTE: 1.5 - Calcular IMC - Obesidade Grau II
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:08 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '116', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 35.92,
+    "classificacao": "Obesidade grau II"
+  }
+}
+
+======================================================================
+TESTE: 1.6 - Calcular IMC - Obesidade Grau III
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:09 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '117', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 42.45,
+    "classificacao": "Obesidade grau III"
+  }
+}
+
+======================================================================
+TESTE: 1.7 - Calcular IMC - Via POST JSON
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:11 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '78', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Ação não definida ou inválida."
+}
+
+======================================================================
+TESTE: 1.8 - Calcular IMC - Erro: Parâmetro Faltando
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:13 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '85', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Peso e altura devem ser maiores que zero."
+}
+
+======================================================================
+TESTE: 1.9 - Calcular IMC - Erro: Peso Zero
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:15 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '85', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Peso e altura devem ser maiores que zero."
+}
+
+======================================================================
+TESTE: 1.10 - Calcular IMC - Erro: Altura Zero
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:17 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '85', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Peso e altura devem ser maiores que zero."
+}
+
+======================================================================
+TESTE: 1.11 - Calcular IMC - Erro: Valores Negativos
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:18 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '85', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Peso e altura devem ser maiores que zero."
+}
+
+======================================================================
+TESTE: 1.12 - Calcular IMC - Valores Extremos Altos
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:20 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '114', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 80,
+    "classificacao": "Obesidade grau III"
+  }
+}
+
+======================================================================
+TESTE: 1.13 - Calcular IMC - Valores Extremos Baixos
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:22 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '114', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 50,
+    "classificacao": "Obesidade grau III"
+  }
+}
+
+======================================================================
+TESTE: 1.14 - Calcular IMC - Erro: Tipos Inválidos
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:23 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '85', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Peso e altura devem ser maiores que zero."
+}
+
+======================================================================
+TESTE: 2.1 - Verificar Palíndromo - Palavra Simples
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:25 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '148', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "arara",
+    "texto_tratado": "arara",
+    "eh_palindromo": true
+  }
+}
+
+======================================================================
+TESTE: 2.2 - Verificar Palíndromo - Frase
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:26 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '171', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "A torre da derrota",
+    "texto_tratado": "atorredaderrota",
+    "eh_palindromo": true
+  }
+}
+
+======================================================================
+TESTE: 2.3 - Verificar Palíndromo - Não é Palíndromo
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:28 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '149', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "teste",
+    "texto_tratado": "teste",
+    "eh_palindromo": false
+  }
+}
+
+======================================================================
+TESTE: 2.4 - Verificar Palíndromo - Com Acentuação
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:29 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '144', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "Ovo",
+    "texto_tratado": "ovo",
+    "eh_palindromo": true
+  }
+}
+
+======================================================================
+TESTE: 2.5 - Verificar Palíndromo - Clássico
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:31 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '208', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "Socorram-me subi no onibus em Marrocos",
+    "texto_tratado": "socorrammesubinoonibusemmarrocos",
+    "eh_palindromo": true
+  }
+}
+
+======================================================================
+TESTE: 2.6 - Verificar Palíndromo - Via POST
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:33 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '78', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Ação não definida ou inválida."
+}
+
+======================================================================
+TESTE: 2.7 - Verificar Palíndromo - Texto Vazio
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:35 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '95', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Envie um texto válido contendo letras ou números."
+}
+
+======================================================================
+TESTE: 2.8 - Verificar Palíndromo - Apenas Espaços
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:36 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '95', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Envie um texto válido contendo letras ou números."
+}
+
+======================================================================
+TESTE: 2.9 - Verificar Palíndromo - Uma Letra
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:38 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '140', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "A",
+    "texto_tratado": "a",
+    "eh_palindromo": true
+  }
+}
+
+======================================================================
+TESTE: 2.10 - Verificar Palíndromo - Números e Especiais
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:40 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '148', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "12321",
+    "texto_tratado": "12321",
+    "eh_palindromo": true
+  }
+}
+
+======================================================================
+TESTE: 2.11 - Verificar Palíndromo - Texto Longo
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:41 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '4140', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "texto_tratado": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "eh_palindromo": true
+  }
+}
+
+======================================================================
+TESTE: 2.12 - Verificar Palíndromo - Erro: Parâmetro Faltando
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:43 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '95', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Envie um texto válido contendo letras ou números."
+}
+
+======================================================================
+TESTE: 3.1 - Gerar Tabuada - Número 7
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:44 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '268', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": [
+    "7 x 1 = 7",
+    "7 x 2 = 14",
+    "7 x 3 = 21",
+    "7 x 4 = 28",
+    "7 x 5 = 35",
+    "7 x 6 = 42",
+    "7 x 7 = 49",
+    "7 x 8 = 56",
+    "7 x 9 = 63",
+    "7 x 10 = 70"
+  ]
+}
+
+======================================================================
+TESTE: 3.2 - Gerar Tabuada - Número 1
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:46 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '260', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": [
+    "1 x 1 = 1",
+    "1 x 2 = 2",
+    "1 x 3 = 3",
+    "1 x 4 = 4",
+    "1 x 5 = 5",
+    "1 x 6 = 6",
+    "1 x 7 = 7",
+    "1 x 8 = 8",
+    "1 x 9 = 9",
+    "1 x 10 = 10"
+  ]
+}
+
+======================================================================
+TESTE: 3.3 - Gerar Tabuada - Número 10
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:48 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '280', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": [
+    "10 x 1 = 10",
+    "10 x 2 = 20",
+    "10 x 3 = 30",
+    "10 x 4 = 40",
+    "10 x 5 = 50",
+    "10 x 6 = 60",
+    "10 x 7 = 70",
+    "10 x 8 = 80",
+    "10 x 9 = 90",
+    "10 x 10 = 100"
+  ]
+}
+
+======================================================================
+TESTE: 3.4 - Gerar Tabuada - Número Negativo
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:49 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '288', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": [
+    "-5 x 1 = -5",
+    "-5 x 2 = -10",
+    "-5 x 3 = -15",
+    "-5 x 4 = -20",
+    "-5 x 5 = -25",
+    "-5 x 6 = -30",
+    "-5 x 7 = -35",
+    "-5 x 8 = -40",
+    "-5 x 9 = -45",
+    "-5 x 10 = -50"
+  ]
+}
+
+======================================================================
+TESTE: 3.5 - Gerar Tabuada - Via POST
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:51 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '78', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Ação não definida ou inválida."
+}
+
+======================================================================
+TESTE: 3.6 - Gerar Tabuada - Erro: Parâmetro Faltando
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:53 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '84', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "O parâmetro \"numero\" é obrigatório."
+}
+
+======================================================================
+TESTE: 3.7 - Gerar Tabuada - Número Zero
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:54 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '259', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": [
+    "0 x 1 = 0",
+    "0 x 2 = 0",
+    "0 x 3 = 0",
+    "0 x 4 = 0",
+    "0 x 5 = 0",
+    "0 x 6 = 0",
+    "0 x 7 = 0",
+    "0 x 8 = 0",
+    "0 x 9 = 0",
+    "0 x 10 = 0"
+  ]
+}
+
+======================================================================
+TESTE: 3.8 - Gerar Tabuada - Número Muito Grande
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:56 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '368', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": [
+    "999999 x 1 = 999999",
+    "999999 x 2 = 1999998",
+    "999999 x 3 = 2999997",
+    "999999 x 4 = 3999996",
+    "999999 x 5 = 4999995",
+    "999999 x 6 = 5999994",
+    "999999 x 7 = 6999993",
+    "999999 x 8 = 7999992",
+    "999999 x 9 = 8999991",
+    "999999 x 10 = 9999990"
+  ]
+}
+
+======================================================================
+TESTE: 3.9 - Gerar Tabuada - Número Decimal
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:58 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '298', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": [
+    "5.5 x 1 = 5.5",
+    "5.5 x 2 = 11",
+    "5.5 x 3 = 16.5",
+    "5.5 x 4 = 22",
+    "5.5 x 5 = 27.5",
+    "5.5 x 6 = 33",
+    "5.5 x 7 = 38.5",
+    "5.5 x 8 = 44",
+    "5.5 x 9 = 49.5",
+    "5.5 x 10 = 55"
+  ]
+}
+
+======================================================================
+TESTE: 3.10 - Gerar Tabuada - Erro: String
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:42:59 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '89', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "O valor informado não é um número válido."
+}
+
+======================================================================
+TESTE: 4.1 - Info Sistema
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:01 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '218', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "data_hora": "2025-12-01 01:43:01",
+    "versao_php": "8.1.2-1ubuntu2.22",
+    "servidor": "Apache/2.4.52 (Ubuntu)",
+    "metodo_requisicao": "GET"
+  }
+}
+
+======================================================================
+TESTE: 5.1 - Erro - Ação Inexistente
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:03 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '87', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Método 'acao_inexistente' não encontrado."
+}
+
+======================================================================
+TESTE: 5.2 - Erro - Sem Parâmetro Ação
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:04 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '78', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Ação não definida ou inválida."
+}
+
+======================================================================
+TESTE: 5.3 - Erro - Ação Vazia
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:06 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '78', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Ação não definida ou inválida."
+}
+
+======================================================================
+TESTE: 5.4 - Parâmetros Extras Ignorados
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:07 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '218', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "data_hora": "2025-12-01 01:43:07",
+    "versao_php": "8.1.2-1ubuntu2.22",
+    "servidor": "Apache/2.4.52 (Ubuntu)",
+    "metodo_requisicao": "GET"
+  }
+}
+
+======================================================================
+TESTE: 6.1 - Segurança - SQL Injection na Ação
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:09 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '94', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Método 'calcular_imc' OR '1'='1' não encontrado."
+}
+
+======================================================================
+TESTE: 6.2 - Segurança - XSS no Texto
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:11 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '189', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "<script>alert('xss')</script>",
+    "texto_tratado": "scriptalertxssscript",
+    "eh_palindromo": false
+  }
+}
+
+======================================================================
+TESTE: 6.3 - Edge Case - Caracteres Unicode
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:12 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '156', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "😀radar😀",
+    "texto_tratado": "radar",
+    "eh_palindromo": true
+  }
+}
+
+======================================================================
+TESTE: 6.4 - Edge Case - Método PUT
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:14 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '218', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "data_hora": "2025-12-01 01:43:14",
+    "versao_php": "8.1.2-1ubuntu2.22",
+    "servidor": "Apache/2.4.52 (Ubuntu)",
+    "metodo_requisicao": "PUT"
+  }
+}
+
+======================================================================
+TESTE: 6.5 - Edge Case - Método DELETE
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:16 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '221', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "data_hora": "2025-12-01 01:43:16",
+    "versao_php": "8.1.2-1ubuntu2.22",
+    "servidor": "Apache/2.4.52 (Ubuntu)",
+    "metodo_requisicao": "DELETE"
+  }
+}
+
+======================================================================
+TESTE: 6.6 - Edge Case - Headers Customizados
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:17 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '218', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "data_hora": "2025-12-01 01:43:17",
+    "versao_php": "8.1.2-1ubuntu2.22",
+    "servidor": "Apache/2.4.52 (Ubuntu)",
+    "metodo_requisicao": "GET"
+  }
+}
+
+======================================================================
+TESTE: 6.7 - Performance - Timeout de 1 segundo
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:19 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '308', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": [
+    "999 x 1 = 999",
+    "999 x 2 = 1998",
+    "999 x 3 = 2997",
+    "999 x 4 = 3996",
+    "999 x 5 = 4995",
+    "999 x 6 = 5994",
+    "999 x 7 = 6993",
+    "999 x 8 = 7992",
+    "999 x 9 = 8991",
+    "999 x 10 = 9990"
+  ]
+}
+
+======================================================================
+TESTE: 6.8 - Edge Case - Vírgula em Decimal
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:21 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '110', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 23.02,
+    "classificacao": "Peso normal"
+  }
+}
+
+======================================================================
+TESTE: 6.9 - Edge Case - Ação com Maiúsculas
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:22 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '83', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Método 'CALCULAR_IMC' não encontrado."
+}
+
+======================================================================
+TESTE: 6.10 - Edge Case - Parâmetros Duplicados
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:24 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '108', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 26.12,
+    "classificacao": "Sobrepeso"
+  }
+}
+
+======================================================================
+TESTE: 6.11 - Edge Case - Valor Infinito
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:26 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '85', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Peso e altura devem ser maiores que zero."
+}
+
+======================================================================
+TESTE: 6.12 - Edge Case - NaN
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:28 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '89', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "O valor informado não é um número válido."
+}
+
+======================================================================
+TESTE: 6.13 - Edge Case - Array no Parâmetro
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:30 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '89', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "O valor informado não é um número válido."
+}
+
+======================================================================
+TESTE: 6.14 - Segurança - Null Byte
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:32 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '173', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "teste\u0000injection",
+    "texto_tratado": "testeinjection",
+    "eh_palindromo": false
+  }
+}
+
+======================================================================
+TESTE: 6.15 - Edge Case - URL Muito Longa
+======================================================================
+
+Status Code: 414
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:34 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Content-Length': '335', 'Connection': 'close', 'Content-Type': 'text/html; charset=iso-8859-1'}
+Response Text: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>414 Request-URI Too Long</title>
+</head><body>
+<h1>Request-URI Too Long</h1>
+<p>The requested URL's length exceeds the capacity
+limit for this server.<br />
+</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at SITe.cct.uenp.edu.br Port 443</address>
+</body></html>
+
+
+======================================================================
+TESTE: 6.16 - Edge Case - Caracteres UTF-8 Especiais
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:36 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '175', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "texto_original": "olá mundo 你好 مرحبا",
+    "texto_tratado": "olamundo",
+    "eh_palindromo": false
+  }
+}
+
+======================================================================
+TESTE: 6.17 - Edge Case - POST com Form Data
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:38 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '78', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Ação não definida ou inválida."
+}
+
+======================================================================
+TESTE: 6.18 - Edge Case - Notação Científica
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:39 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '110', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "sucesso",
+  "dados": {
+    "imc": 22.86,
+    "classificacao": "Peso normal"
+  }
+}
+
+======================================================================
+TESTE: 6.19 - Edge Case - Espaços nos Parâmetros
+======================================================================
+
+Status Code: 200
+Headers: {'Date': 'Mon, 01 Dec 2025 04:43:41 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST', 'Content-Length': '85', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json; charset=UTF-8'}
+Response JSON:
+{
+  "status": "erro",
+  "mensagem": "Método ' calcular_imc ' não encontrado."
+}
+
+======================================================================
+TESTE: 6.20 - Performance - Requisições Simultâneas
+======================================================================
+
+5 requisições completadas
+Status codes: [200, 200, 200, 200, 200]
+Tempo total: 8.44s
+
+######################################################################
+# BATERIA DE TESTES CONCLUÍDA
+######################################################################
+
+
+======================================================================
+RELATÓRIO FINALIZADO
+======================================================================
